@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Helper package containing a variety of react based components to speed up and ease the development process.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielsDesigns-au/ez-react-lib"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

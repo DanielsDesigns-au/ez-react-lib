@@ -1,0 +1,8 @@
+# Next compiler files for testing components
+/.next
+
+# Build modules
+dist
+node_modules
+.rollup.cache
+.DS_Store

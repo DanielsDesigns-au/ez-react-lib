@@ -6,6 +6,11 @@
   position: relative;
   overflow: hidden;
   margin: 16px 0;
+  transition: transform 300ms;
+
+  &:hover {
+    transform: scale(105%);
+  }
 }
 
 .imageWrapper {

@@ -7,6 +7,8 @@ interface CardProps {
   category: string;
   price: string;
   imgSrc: string;
+  classOverride?: string;
+  href?: string;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -14,9 +16,14 @@ export const Card: React.FC<CardProps> = ({
   category,
   price,
   imgSrc,
+  classOverride,
+  href,
 }) => {
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${classOverride}`}
+      style={{ cursor: href && 'pointer' }}
+    >
       <div className={styles.imageWrapper}>
         <img className={styles.image} alt={name} src={imgSrc} loading="lazy" />
       </div>

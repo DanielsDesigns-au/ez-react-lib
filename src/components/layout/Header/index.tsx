@@ -2,16 +2,18 @@ import React from 'react';
 
 import styles from './Header.module.scss';
 
-type HeaderRow = Array<Link | Title>;
-
 interface HeaderProps {
-  rows: HeaderRow[];
+  links?: Array<Link | string>;
+  brand?: string;
+  brandElementOverride?: JSX.Element;
   classOverride?: string;
   sticky?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  rows,
+  links,
+  brand,
+  brandElementOverride,
   sticky = true,
   classOverride,
 }) => {
@@ -26,31 +28,55 @@ export const Header: React.FC<HeaderProps> = ({
           boxShadow: sticky ? '0px 2px 20px rgb(0 0 0 / 50%)' : 'none',
         }}
       >
-        {rows?.map((linksOrTitle, i) => (
-          <div
-            className={styles.row}
-            key={`headerRow-${i}-${linksOrTitle?.[0]?.text}`}
-          >
-            {linksOrTitle?.map((data) =>
-              Object.keys(data).includes('href') ? (
-                <a
-                  href={(data as Link)?.href}
-                  className={styles.link}
-                  key={`headerLink-${data?.text}`}
-                >
-                  {(data as Link)?.text}
-                </a>
-              ) : (
-                <h1
-                  className={styles.brandName}
-                  key={`headerLink-${data?.text}`}
-                >
-                  {(data as Title)?.text}
-                </h1>
-              )
-            )}
-          </div>
-        ))}
+        <div className={styles.row}>
+          {links?.slice(0, links.length / 2)?.map((linkOrString, i) =>
+            typeof linkOrString === 'string' ? (
+              <a
+                href={linkOrString}
+                className={styles.link}
+                key={`headerLink-${linkOrString}`}
+              >
+                {linkOrString}
+              </a>
+            ) : (
+              <a
+                href={linkOrString?.href}
+                className={styles.link}
+                key={`headerLink-${linkOrString?.text}`}
+              >
+                {linkOrString?.text}
+              </a>
+            )
+          )}
+        </div>
+        <div className={styles.row}>
+          {brandElementOverride ? (
+            brandElementOverride
+          ) : (
+            <h1 className={styles.brandName}>{brand}</h1>
+          )}
+        </div>
+        <div className={styles.row}>
+          {links?.slice(-(links.length / 2))?.map((linkOrString, i) =>
+            typeof linkOrString === 'string' ? (
+              <a
+                href={linkOrString}
+                className={styles.link}
+                key={`headerLink-${linkOrString}`}
+              >
+                {linkOrString}
+              </a>
+            ) : (
+              <a
+                href={linkOrString?.href}
+                className={styles.link}
+                key={`headerLink-${linkOrString?.text}`}
+              >
+                {linkOrString?.text}
+              </a>
+            )
+          )}
+        </div>
       </div>
     </>
   );

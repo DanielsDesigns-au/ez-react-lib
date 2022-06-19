@@ -6,3 +6,4 @@ dist
 node_modules
 .rollup.cache
 .DS_Store
+.env

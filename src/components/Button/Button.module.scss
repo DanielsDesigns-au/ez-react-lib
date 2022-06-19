@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  .btn {
+    background-color: white;
+    border: 1px solid #161616;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    font-weight: 600;
+    box-shadow: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: -1px 4px 0 2px rgba(0, 0, 0, 0.548);
+    user-select: none;
+    text-decoration: 0;
+
+    &:hover {
+      transform: scale(1.1, 1.1);
+      box-shadow: -4px 10px 0 3px rgba(0, 0, 0, 0.548);
+    }
+
+    &:active {
+      transform: scale(0.9, 0.9);
+      box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.548);
+    }
+  }
+}

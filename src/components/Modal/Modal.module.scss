@@ -1,0 +1,78 @@
+.bgBlocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.809);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: scroll;
+
+  @media (max-width: 800px) {
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: whitesmoke;
+
+    .modal {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: unset;
+      min-height: unset;
+      border-radius: 0;
+    }
+  }
+}
+
+.modal {
+  position: relative;
+  min-width: 800px;
+  min-height: 850px;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  padding: 36px;
+  margin: auto 0;
+
+  @media (max-width: 600px) {
+    padding: 19px 18px 170px;
+  }
+}
+
+.crossRight,
+.crossLeft {
+  position: absolute;
+  width: 3px;
+  height: 24px;
+  top: 50%;
+  left: 50%;
+  background-color: black;
+  border-radius: 8px;
+}
+
+.crossRight {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.crossLeft {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.closeButton {
+  position: absolute;
+  cursor: pointer;
+  top: 36px;
+  right: 36px;
+  width: 48px;
+  height: 48px;
+  border-radius: calc(8px * 3);
+  background-color: white;
+
+  @media (max-width: 600px) {
+    top: 19px;
+    right: 18px;
+  }
+}

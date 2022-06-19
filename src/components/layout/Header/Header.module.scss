@@ -1,0 +1,26 @@
+.container {
+  height: 64px;
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .link:first-of-type {
+    margin-left: 0;
+  }
+
+  .link:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.brandName,
+.link {
+  text-transform: uppercase;
+}
+
+.link {
+  margin: 0 12px;
+  cursor: pointer;
+}

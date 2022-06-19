@@ -1,14 +1,25 @@
 {
   "name": "ez-react-lib",
   "version": "1.0.0",
+  "private": false,
   "description": "Helper package containing a variety of react based components to speed up and ease the development process.",
-  "main": "index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DanielsDesigns-au/ez-react-lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon -e tsx,ts,scss --watch ./src --exec \"rollup -c\"",
+    "build": "rollup -c",
+    "lint": "next lint",
+    "rollup": "rollup -c",
+    "test": "jest"
   },
   "keywords": [
     "react",
@@ -26,11 +37,13 @@
     "@babel/preset-typescript": "^7.16.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
-    "@rollup/plugin-typescript": "^8.3.0",
+    "@rollup/plugin-typescript": "^8.3.3",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.3",
     "@types/react": "^17.0.37",
     "babel-jest": "^27.4.4",
+    "eslint": "8.18.0",
+    "eslint-config-next": "12.1.6",
     "ez-scss": "1.0.7",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.4",

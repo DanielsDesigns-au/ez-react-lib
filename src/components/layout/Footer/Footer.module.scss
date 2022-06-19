@@ -1,0 +1,169 @@
+// @import 'ez-scss/mixins';
+// @import 'ez-scss/responsive';
+
+.footer {
+  width: 100%;
+  border-top: 1px solid #ffffff;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.columns {
+  width: 100%;
+  min-height: 20vh;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 24px 0;
+
+  // @include tablet {
+  //   flex-direction: column;
+  //   align-items: center;
+  // }
+}
+
+.column {
+  min-width: 250px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #ffffff;
+
+  // @include tablet {
+  //   text-align: center;
+  //   align-items: center;
+  //   margin: 24px 0;
+  // }
+
+  p {
+    color: var(--color-green);
+    margin: 0 0 0.5rem;
+
+    &:first-child {
+      margin: 0 0 0.75rem;
+      text-decoration: underline;
+      text-underline-offset: 1px;
+      font-size: 1.5rem;
+    }
+
+    u {
+      font-size: 1.5rem;
+    }
+
+    a {
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: initial;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.footerIcon {
+  justify-content: center;
+  align-items: center;
+}
+
+.divider {
+  width: 100%;
+  background-color: var(--color-copyright);
+  height: 1px;
+  border: transparent;
+}
+
+.subFooter {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 28px;
+
+  // @include tablet {
+  //   flex-direction: column;
+  // }
+}
+
+.copyright {
+  font-size: 80%;
+  padding: 0.5em 0;
+  color: var(--color-copyright);
+}
+
+.link {
+  color: var(--color-green);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.siteInfo {
+  color: var(--color-copyright);
+
+  // @include tablet {
+  //   font-size: 12px;
+  // }
+}
+
+.settings,
+.social {
+  user-select: none;
+}
+
+.settings a,
+.social a {
+  cursor: pointer;
+  font-size: 2em;
+  display: inline-flex;
+  padding: 0.25em;
+  margin-right: 1vw;
+  transition: color 250ms ease-out;
+}
+
+.settings a:last-of-type,
+.social a:last-of-type {
+  margin-right: 0;
+}
+
+.settings a:hover,
+.social a:hover {
+  transition: color 50ms ease-out;
+}
+
+.toggleDarkMode:hover {
+  color: #2795e9;
+}
+
+.twitter:hover {
+  color: #2795e9;
+}
+
+.github:hover {
+  color: #c9510c;
+}
+
+.linkedin:hover {
+  color: #0077b5;
+}
+
+@media only screen and (max-width: 566px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .footer > div {
+    margin-top: 1em;
+  }
+
+  .footer .settings {
+    order: 1;
+  }
+  .footer .social {
+    order: 2;
+  }
+  .footer .copyright {
+    order: 3;
+  }
+}

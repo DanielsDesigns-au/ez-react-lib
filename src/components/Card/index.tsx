@@ -2,14 +2,19 @@ import React from 'react';
 
 import styles from './Card.module.scss';
 
-interface Props {
+interface CardProps {
   name: string;
   category: string;
   price: string;
   imgSrc: string;
 }
 
-export const Card: React.FC<Props> = ({ name, category, price, imgSrc }) => {
+export const Card: React.FC<CardProps> = ({
+  name,
+  category,
+  price,
+  imgSrc,
+}) => {
   return (
     <div className={styles.container}>
       <div className={styles.imageWrapper}>

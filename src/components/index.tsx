@@ -4,5 +4,5 @@ export { default as Modal } from './Modal';
 export { default as Card } from './Card';
 
 // Layouts
-export { default as HeadMeta } from './layout/HeadMeta';
 export { default as Header } from './layout/Header';
+export { default as Footer } from './layout/Footer';

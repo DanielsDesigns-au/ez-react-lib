@@ -1,10 +1,12 @@
 .container {
   height: 64px;
-  width: 80vw;
-  margin: 0 auto;
+  width: 100%;
+  padding: 0 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  top: 0;
+  left: 0;
 
   .link:first-of-type {
     margin-left: 0;
@@ -23,4 +25,27 @@
 .link {
   margin: 0 12px;
   cursor: pointer;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0.2em 0;
+
+  /* Fade in */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: white;
+    transition: opacity 300ms, transform 300ms;
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    transform: scale(1);
+  }
 }

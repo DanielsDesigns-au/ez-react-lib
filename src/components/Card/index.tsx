@@ -9,6 +9,7 @@ interface CardProps {
   imgSrc: string;
   classOverride?: string;
   href?: string;
+  onClick?: () => void;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -18,11 +19,14 @@ export const Card: React.FC<CardProps> = ({
   imgSrc,
   classOverride,
   href,
+  onClick,
 }) => {
   return (
     <div
       className={`${styles.container} ${classOverride}`}
       style={{ cursor: href && 'pointer' }}
+      onClick={onClick}
+      aria-hidden
     >
       <div className={styles.imageWrapper}>
         <img className={styles.image} alt={name} src={imgSrc} loading="lazy" />

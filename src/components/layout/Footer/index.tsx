@@ -2,6 +2,8 @@ import React from 'react';
 
 import styles from './Footer.module.scss';
 
+import { Link } from '../../../typings/types';
+
 type FooterRow = Array<Link>;
 
 interface FooterProps {
@@ -20,23 +22,6 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer className={styles.footer}>
       {rows && <div className={styles.columns}></div>}
-      {/* {data?.allSection?.[0]?.sectionBlocks?.map((block) =>
-          block?.heading == "Footer Logo" ? (
-            <div className={`${styles.column} ${styles.footerIcon}`} key={block?._key}>
-              <Image
-                src={footer?.footerIcon?.url || "/images/icon.png"}
-                alt={""}
-                width={150}
-                height={150}
-                className={styles.image}
-              />
-            </div>
-          ) : (
-            <div className={styles.column} key={block?._key}>
-              <PortableText value={block?.descriptionRaw} />
-            </div>
-          )
-        )} */}
       <hr className={styles.divider} />
       <div className={styles.subFooter}>
         <div className={styles.copyright}>

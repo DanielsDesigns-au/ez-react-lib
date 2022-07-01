@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Modal.module.scss';
 
-interface Props {
+interface ModalProps {
   showModal: boolean;
   setShowModal: any;
   children: React.ReactNode;
@@ -14,7 +14,7 @@ const Modal = ({
   setShowModal,
   children,
   dataTestId,
-}: Props) => {
+}: ModalProps) => {
   const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     setShowModal && setShowModal(false);

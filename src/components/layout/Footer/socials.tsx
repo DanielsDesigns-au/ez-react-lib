@@ -2,18 +2,9 @@ import React from 'react';
 import styles from './Footer.module.scss';
 
 interface SocialsProps {
-  twitter?: {
-    href: string;
-    username?: string;
-  };
-  github?: {
-    href: string;
-    username?: string;
-  };
-  linkedIn?: {
-    href: string;
-    username?: string;
-  };
+  twitter?: Social;
+  github?: Social;
+  linkedIn?: Social;
 }
 
 export const Socials: React.FC<SocialsProps> = ({

@@ -1,6 +1,6 @@
 {
   "name": "ez-react-lib",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "description": "Helper package containing a variety of react based components to speed up and ease the development process.",
   "main": "dist/cjs/index.js",
@@ -15,8 +15,9 @@
     "url": "git+https://github.com/DanielsDesigns-au/ez-react-lib"
   },
   "scripts": {
-    "dev": "nodemon -e tsx,ts,scss --watch ./src --exec \"rollup -c\"",
-    "build": "rollup -c",
+    "dev": "nodemon -e tsx,ts,scss --watch ./src --exec \"rollup -c; node ./typeresolver.js\"",
+    "build": "rollup -c; node ./typeresolver.js",
+    "type-res": "node ./typeresolver.js",
     "lint": "next lint",
     "rollup": "rollup -c",
     "test": "jest"

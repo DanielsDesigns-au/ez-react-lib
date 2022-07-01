@@ -17,8 +17,30 @@
 
 ```typescript
 // Import component at head of file
-import { Button } from 'ez-react-lib';
+import { Card } from 'ez-react-lib';
+import styles from './index.module.scss';
 
 // Render component inside jsx body
-return <Button>"Super Easy Button with styling!"</Button>;
+const Home: NextPage = ({ data }) => {
+  const handleClick = () => {
+    if (isMember) {
+      window.location.push('/members-only');
+    }
+  };
+
+  return (
+    <>
+      <Card
+        name={'Merch to Sell'}
+        category={'Shirts'}
+        price={'420'}
+        imgSrc={'your/mums/house'}
+        classOverride={styles.sexyCard}
+        onClick={handleClick}
+      />
+    </>
+  );
+};
+
+export default Home;
 ```

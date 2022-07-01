@@ -2,8 +2,6 @@ import React from 'react';
 
 import styles from './Header.module.scss';
 
-import { Link } from '../../../typings/types';
-
 interface HeaderProps {
   links?: Array<Link | string>;
   brand?: string;

@@ -7,4 +7,7 @@ interface Link {
   href: string;
 }
 
-export type { Title, Link };
+interface Social {
+  href: string;
+  username?: string;
+}

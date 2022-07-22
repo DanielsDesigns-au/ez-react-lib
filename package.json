@@ -1,6 +1,6 @@
 {
   "name": "ez-react-lib",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": false,
   "description": "Helper package containing a variety of react based components to speed up and ease the development process.",
   "main": "dist/cjs/index.js",

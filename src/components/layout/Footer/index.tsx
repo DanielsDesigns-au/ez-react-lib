@@ -2,34 +2,31 @@ import React from 'react';
 
 import styles from './Footer.module.scss';
 
-type FooterRow = Array<Link>;
-
-interface FooterProps {
-  rows?: FooterRow;
-  siteDev?: string;
-  termsHref?: string;
-  sitemapHref?: string;
-}
-
 export const Footer: React.FC<FooterProps> = ({
   rows,
   siteDev,
   termsHref,
   sitemapHref,
+  stylesOveeride,
 }) => {
   return (
-    <footer className={styles.footer}>
-      {rows && <div className={styles.columns}></div>}
-      <hr className={styles.divider} />
-      <div className={styles.subFooter}>
-        <div className={styles.copyright}>
+    <footer className={stylesOveeride?.footer || styles.footer}>
+      {rows && (
+        <div className={stylesOveeride?.columns || styles.columns}></div>
+      )}
+      <hr className={stylesOveeride?.divider || styles.divider} />
+      <div className={stylesOveeride?.subFooter || styles.subFooter}>
+        <div className={stylesOveeride?.copyright || styles.copyright}>
           Copyright© {new Date().getFullYear()} {siteDev}
         </div>
-        <div className={styles.siteInfo}>
+        <div className={stylesOveeride?.siteInfo || styles.siteInfo}>
           {termsHref && (
             <>
               <span>Read our </span>
-              <a href={termsHref} className={styles.link}>
+              <a
+                href={termsHref}
+                className={stylesOveeride?.link || styles.link}
+              >
                 Terms and Conditons of Trade
               </a>
             </>
@@ -38,7 +35,10 @@ export const Footer: React.FC<FooterProps> = ({
           {sitemapHref && (
             <>
               <span>| </span>
-              <a href={sitemapHref} className={styles.link}>
+              <a
+                href={sitemapHref}
+                className={stylesOveeride?.link || styles.link}
+              >
                 Sitemap
               </a>
             </>

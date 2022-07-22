@@ -13,10 +13,15 @@ for (i in typesAsFileSync) {
     const matches = line.match(/(?<=interface )(.*?)(?= {)/);
     if (matches[0]) exportableTypes.push(matches[0]);
   }
+  if (line.startsWith('type')) {
+    const matches = line.match(/(?<=type )(.*?)(?= =)/);
+    if (matches[0]) exportableTypes.push(matches[0]);
+  }
 }
 
+typesAsFileSync.push(''); // nice spacing
 typesAsFileSync.push(`export { ${exportableTypes.join(', ')} };`);
-typesAsFileSync.push('');
+typesAsFileSync.push(''); // always have line empty at end of file
 
 const typesToAppend = ['', ...typesAsFileSync].join('\n');
 

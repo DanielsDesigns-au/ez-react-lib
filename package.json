@@ -1,6 +1,6 @@
 {
   "name": "ez-react-lib",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": false,
   "description": "Helper package containing a variety of react based components to speed up and ease the development process.",
   "main": "dist/cjs/index.js",
@@ -61,5 +61,8 @@
   },
   "peerDependencies": {
     "react": "^17.0.2"
+  },
+  "dependencies": {
+    "ez-sass": "^1.0.0"
   }
 }

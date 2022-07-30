@@ -1,3 +1,14 @@
+@import '~ez-sass/responsive';
+
+.row {
+  &:first-of-type,
+  &:nth-of-type(3) {
+    @include laptop {
+      display: none;
+    }
+  }
+}
+
 .container {
   height: 64px;
   width: 100%;
@@ -7,6 +18,10 @@
   align-items: center;
   top: 0;
   left: 0;
+
+  @include laptop {
+    justify-content: center;
+  }
 
   .link:first-of-type {
     margin-left: 0;
@@ -47,5 +62,69 @@
   &:hover::after,
   &:focus::after {
     transform: scale(1);
+  }
+}
+
+.menuOpen,
+.menuClose {
+  width: 24px;
+  height: 18px;
+  position: absolute;
+  right: 23px;
+  top: 23px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menuLine,
+.crossLeft,
+.crossRight {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: white;
+}
+
+.modal {
+  position: fixed;
+  left: 100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #161616;
+  z-index: 10;
+  transition: left 0.5s;
+}
+
+.modalOpen {
+  left: 0;
+}
+
+.menuClose {
+  min-height: 24px;
+  justify-content: flex-start;
+}
+
+.crossLeft {
+  transform: translateY(10px) rotate(-45deg);
+  position: absolute;
+}
+
+.crossRight {
+  transform: translateY(10px) rotate(45deg);
+  position: absolute;
+}
+
+.modalLinks {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 64px 32px;
+  gap: 16px;
+
+  .link {
+    width: fit-content;
   }
 }

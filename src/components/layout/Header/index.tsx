@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './Header.module.scss';
 
@@ -17,9 +17,14 @@ export const Header: React.FC<HeaderProps> = ({
   sticky = true,
   classOverride,
 }) => {
+  const [headerModalOpen, setHeaderModalOpen] = useState(false);
+  const handleModal = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setHeaderModalOpen(!headerModalOpen);
+  };
+
   return (
     <>
-      <div className={`${styles.container} ${classOverride}`} />
       <div
         className={`${styles.container} ${classOverride}`}
         style={{
@@ -58,6 +63,42 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
         <div className={styles.row}>
           {links?.slice(-(links.length / 2))?.map((linkOrString, i) =>
+            typeof linkOrString === 'string' ? (
+              <a
+                href={linkOrString}
+                className={styles.link}
+                key={`headerLink-${linkOrString}`}
+              >
+                {linkOrString}
+              </a>
+            ) : (
+              <a
+                href={linkOrString?.href}
+                className={styles.link}
+                key={`headerLink-${linkOrString?.text}`}
+              >
+                {linkOrString?.text}
+              </a>
+            )
+          )}
+        </div>
+        <div className={styles.menuOpen} onClick={handleModal}>
+          <div className={styles.menuLine} />
+          <div className={styles.menuLine} />
+          <div className={styles.menuLine} />
+        </div>
+      </div>
+      <div
+        className={`${styles.modal} ${
+          headerModalOpen ? styles.modalOpen : null
+        }`}
+      >
+        <div className={styles.menuClose} onClick={handleModal}>
+          <div className={styles.crossLeft} />
+          <div className={styles.crossRight} />
+        </div>
+        <div className={styles.modalLinks}>
+          {links?.map((linkOrString) =>
             typeof linkOrString === 'string' ? (
               <a
                 href={linkOrString}
